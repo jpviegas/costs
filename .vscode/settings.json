@@ -1,0 +1,8 @@
+{
+  "editor.codeActionsOnSave": {
+  "source.fixAll.eslint": true,
+  "source.organizeImports": true
+  },
+  "editor.formatOnSave": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+}
