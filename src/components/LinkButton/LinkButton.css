@@ -1,0 +1,11 @@
+.link-button {
+  color: #fff;
+  background-color: #222;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  transition: .5s;
+}
+
+.link-button:hover {
+  color: #fb3;
+}

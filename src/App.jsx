@@ -10,7 +10,7 @@ import Projects from './pages/Projects/Projects';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Header />
       <Routes>
         {/* <Container customClass="min-heigth"> */}

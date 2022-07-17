@@ -1,0 +1,20 @@
+.home {
+  padding: 4em;
+  width: 100%;
+}
+
+.home h1 {
+  font-size: 2.5em;
+  margin-bottom: .5em;
+}
+
+.home h1 span {
+  background-color: #222;
+  color: #fb3;
+  padding: 0 .2em;
+}
+
+.home p {
+  color: #7b7b7b;
+  margin-bottom: 1.5em;
+}
