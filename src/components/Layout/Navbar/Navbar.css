@@ -1,5 +1,18 @@
-.navbar {
-  background-color: lightblue;
+.list {
+  background-color: darkgray;
   display: flex;
   justify-content: space-evenly;
+  list-style: none;
+  padding: 1em;
+}
+
+.item {margin-right: 1em;}
+
+.item a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.item a:hover {
+  color: #fb3;
 }

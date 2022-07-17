@@ -6,6 +6,7 @@ import Contact from './pages/Contact/Contact';
 import Home from './pages/Home/Home';
 import NewProject from './pages/NewProject/NewProject';
 import NotFound from './pages/NotFound/NotFound';
+import Projects from './pages/Projects/Projects';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         {/* <Container customClass="min-heigth"> */}
         <Route exact path="/" element={<Home />} />
+        <Route exact path="projects" element={<Projects />} />
         <Route exact path="company" element={<Company />} />
         <Route exact path="contact" element={<Contact />} />
         <Route exact path="newproject" element={<NewProject />} />

@@ -1,6 +1,6 @@
 function NewProject() {
   return (
-    <main className="newProject">
+    <main className="new-project">
       <h1>New Project</h1>
     </main>
   );
