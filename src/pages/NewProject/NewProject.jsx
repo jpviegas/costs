@@ -1,4 +1,4 @@
-import ProjectForm from '../../components/project/ProjectForm';
+import ProjectForm from '../../components/Project/ProjectForm';
 import './NewProject.css';
 
 function NewProject() {
@@ -6,7 +6,7 @@ function NewProject() {
     <main className="new-project">
       <h1>Create project:</h1>
       <p>Create and then update your services</p>
-      <ProjectForm />
+      <ProjectForm btnText="Create project" />
     </main>
   );
 }

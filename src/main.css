@@ -13,6 +13,7 @@ body,
 }
 
 .app {
+  background-color: #7b7b7b;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

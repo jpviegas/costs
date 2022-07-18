@@ -6,7 +6,9 @@
   padding: 1em;
 }
 
-.item {margin-right: 1em;}
+.item {
+  margin-right: 1em;
+}
 
 .item a {
   color: #fff;

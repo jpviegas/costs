@@ -5,13 +5,13 @@
 
 .home h1 {
   font-size: 2.5em;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 
 .home h1 span {
   background-color: #222;
   color: #fb3;
-  padding: 0 .2em;
+  padding: 0 0.2em;
 }
 
 .home p {
