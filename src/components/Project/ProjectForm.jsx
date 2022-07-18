@@ -1,12 +1,14 @@
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import Input from '../Form/Input';
 import Select from '../Form/Select';
 import SubmitButton from '../Form/SubmitButton';
 import './ProjectForm.css';
 
-function ProjectForm({ btnText }) {
+function ProjectForm({ handleSubmit, btnText, projectData }) {
   const [categories, setCategories] = useState([]);
+  const [project, setProject] = useState(
+    projectData || { name: '', budget: 0, category: { id: '', name: '' } }
+  );
 
   useEffect(() => {
     fetch('http://localhost:5000/categories', {
@@ -15,42 +17,65 @@ function ProjectForm({ btnText }) {
         'Content-Type': 'application/json',
       },
     })
-      .then((resp) => resp.json())
+      .then((res) => res.json())
       .then((data) => {
         setCategories(data);
       })
       .catch((err) => console.log(err));
   }, []);
 
+  const submit = (e) => {
+    e.preventDefault();
+    handleSubmit(project);
+    console.log(project);
+  };
+
+  const handleChange = (e) => {
+    setProject({ ...project, [e.target.name]: e.target.value });
+    console.log(project);
+  };
+
+  const handleCategory = (e) => {
+    setProject({
+      ...project,
+      category: {
+        id: e.target.value,
+        name: e.target.options[e.target.selectedIndex].text,
+      },
+    });
+    console.log(project);
+  };
+
   return (
-    <form className="project-form">
+    <form className="project-form" onSubmit={submit}>
       <Input
-        name="projectsName"
+        name="name"
         text="Name"
         type="text"
-        id="0"
         placeholder="Insert projects name"
-        handleOnChange={0}
-        value=""
+        handleOnChange={handleChange}
+        value={project.name}
       />
       <Input
-        name="projectsBudget"
+        name="budget"
         text="Budget"
         type="number"
-        id="1"
-        handleOnChange={0}
         defaultValue={0}
         min={0}
+        handleOnChange={handleChange}
+        value={project.budget}
       />
-      <Select name="category-id" text="Select Category" options={categories} />
+      <Select
+        name="category-id"
+        text="Select Category"
+        options={categories}
+        handleOnChange={handleCategory}
+        value={project.category && project.category.id}
+      />
 
       <SubmitButton text={btnText} />
     </form>
   );
 }
-
-ProjectForm.propTypes = {
-  btnText: PropTypes.string.isRequired,
-};
 
 export default ProjectForm;

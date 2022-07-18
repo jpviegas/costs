@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import './Form.css';
 
 function SubmitButton({ text }) {
@@ -8,9 +7,5 @@ function SubmitButton({ text }) {
     </button>
   );
 }
-
-SubmitButton.propTypes = {
-  text: PropTypes.string.isRequired,
-};
 
 export default SubmitButton;
