@@ -19,7 +19,7 @@ function NewProject() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        navigate('/projects', { message: 'Successfully created!' });
+        navigate('/projects', { state: 'Successfully created!' });
       })
       .catch((err) => console.log(err));
   };
