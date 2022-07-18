@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 
 function Container({ children, styles, customClass }) {
   return (
-    <div className={`${styles.container} ${styles[customClass]}`}>
-      {children}
-    </div>
+    <section className={`${styles.container} ${styles[customClass]}`}>
+      <article>{children}</article>
+    </section>
   );
 }
 
