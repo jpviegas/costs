@@ -10,6 +10,50 @@
       "cost": 0,
       "services": [],
       "id": 3
+    },
+    {
+      "name": "1",
+      "budget": "01",
+      "category": {
+        "id": "Infra",
+        "name": "Infra"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 4
+    },
+    {
+      "name": "2",
+      "budget": "02",
+      "category": {
+        "id": "Development",
+        "name": "Development"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 5
+    },
+    {
+      "name": "3",
+      "budget": "03",
+      "category": {
+        "id": "Design",
+        "name": "Design"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 6
+    },
+    {
+      "name": "4",
+      "budget": "40",
+      "category": {
+        "id": "Planning",
+        "name": "Planning"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 7
     }
   ],
   "categories": [

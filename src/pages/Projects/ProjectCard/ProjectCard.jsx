@@ -1,4 +1,5 @@
 import { BsFillTrashFill, BsPencil } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 import './ProjectCard.css';
 
 function ProjectCard({ id, name, budget, category, handleRemove }) {
@@ -14,13 +15,13 @@ function ProjectCard({ id, name, budget, category, handleRemove }) {
         <span>Budget:</span> R${budget}
       </p>
       <p className="category-text">
-        {/* <span className={`${[category.toLowerCase()]}`} />  */}
-        {/* {category} */}
+        <span className={`${[category.name.toLowerCase()]}`} />
+        {category.name}
       </p>
       <div className="project-card-actions">
-        <button type="button">
+        <Link to={`../project/${id}`}>
           <BsPencil /> Edit
-        </button>
+        </Link>
         <button type="button" onClick={remove}>
           <BsFillTrashFill /> Remove
         </button>
