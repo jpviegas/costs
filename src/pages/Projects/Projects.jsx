@@ -10,10 +10,12 @@ import './Projects.css';
 function Projects() {
   const [projects, setProjects] = useState([]);
   const [removeLoading, setRemoveLoading] = useState(false);
+  const [projectMessage, setProjectMessage] = useState('');
   const location = useLocation();
+  const url = 'http://localhost:5000/';
 
   useEffect(() => {
-    fetch('http://localhost:5000/projects', {
+    fetch(`${url}projects`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -32,13 +34,30 @@ function Projects() {
     message = location.state;
   }
 
+  const removeProject = (id) => {
+    fetch(`${url}projects/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then(() => {
+        setProjects(projects.filter((project) => project.id !== id));
+        setProjectMessage('Successfully deleted!');
+      })
+      .catch((err) => new Error(err));
+  };
+
   return (
     <main className="projects">
       <div className="title">
         <h1>My Projects</h1>
         <LinkButton to="/newproject" text="Create new project" />
       </div>
-      <Message msg={message} type="success" />
+      {message && <Message msg={message} type="success" />}
+      {projectMessage && <Message msg={projectMessage} type="error" />}
+
       <Container container="container" customClass="start">
         {projects.length > 0 &&
           projects.map((project) => (
@@ -47,7 +66,7 @@ function Projects() {
               name={project.name}
               budget={project.budget}
               category={project.category}
-              handleRemove=""
+              handleRemove={removeProject}
               key={project.id}
             />
           ))}
