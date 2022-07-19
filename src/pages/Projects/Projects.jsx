@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Container from '../../components/Layout/Container/Container';
+import Loading from '../../components/Layout/Loading/Loading';
 import Message from '../../components/Layout/Message/Message';
 import LinkButton from '../../components/LinkButton/LinkButton';
 import ProjectCard from './ProjectCard/ProjectCard';
@@ -8,6 +9,7 @@ import './Projects.css';
 
 function Projects() {
   const [projects, setProjects] = useState([]);
+  const [removeLoading, setRemoveLoading] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -20,6 +22,7 @@ function Projects() {
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);
+        setRemoveLoading(true);
       })
       .catch((err) => new Error(err));
   }, []);
@@ -48,6 +51,10 @@ function Projects() {
               key={project.id}
             />
           ))}
+        {!removeLoading && <Loading />}
+        {removeLoading && projects.length === 0 && (
+          <p>There are no projects yet...</p>
+        )}
       </Container>
     </main>
   );
