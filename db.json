@@ -1,13 +1,19 @@
 {
   "projects": [
     {
+      "name": "teste",
+      "budget": "1000",
+      "category": {
+        "id": "Development",
+        "name": "Development"
+      },
       "cost": 0,
       "services": [],
       "id": 1
     },
     {
-      "name": "teste",
-      "budget": "5000",
+      "name": "teste2",
+      "budget": "2000",
       "category": {
         "id": "Design",
         "name": "Design"
@@ -26,83 +32,6 @@
       "cost": 0,
       "services": [],
       "id": 3
-    },
-    {
-      "name": "teste",
-      "budget": "1",
-      "category": {
-        "id": "Development",
-        "name": "Development"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 4
-    },
-    {
-      "name": "t",
-      "budget": "1",
-      "category": {
-        "id": "Development",
-        "name": "Development"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 5
-    },
-    {
-      "name": "a",
-      "budget": "2",
-      "category": {
-        "id": "Design",
-        "name": "Design"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 6
-    },
-    {
-      "name": "c",
-      "budget": "1",
-      "category": {
-        "id": "Planning",
-        "name": "Planning"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 7
-    },
-    {
-      "name": "c",
-      "budget": "1",
-      "category": {
-        "id": "Planning",
-        "name": "Planning"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 8
-    },
-    {
-      "name": "a",
-      "budget": 0,
-      "category": {
-        "id": "",
-        "name": ""
-      },
-      "cost": 0,
-      "services": [],
-      "id": 9
-    },
-    {
-      "name": "b",
-      "budget": "2",
-      "category": {
-        "id": "Development",
-        "name": "Development"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 10
     }
   ],
   "categories": [

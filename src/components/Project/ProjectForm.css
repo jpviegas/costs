@@ -9,3 +9,9 @@
   color: #fb3;
   padding: 0.5em;
 }
+
+input,
+select {
+  background-color: #a9a9a9;
+  color: #222;
+}

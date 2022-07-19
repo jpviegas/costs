@@ -21,18 +21,16 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
       .then((data) => {
         setCategories(data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => new Error(err));
   }, []);
 
   const submit = (e) => {
     e.preventDefault();
     handleSubmit(project);
-    console.log(project);
   };
 
   const handleChange = (e) => {
     setProject({ ...project, [e.target.name]: e.target.value });
-    console.log(project);
   };
 
   const handleCategory = (e) => {
@@ -43,7 +41,6 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
         name: e.target.options[e.target.selectedIndex].text,
       },
     });
-    console.log(project);
   };
 
   return (
@@ -52,7 +49,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
         name="name"
         text="Name"
         type="text"
-        placeholder="Insert projects name"
+        placeholder="insert projects name"
         handleOnChange={handleChange}
         value={project.name}
       />
@@ -60,6 +57,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
         name="budget"
         text="Budget"
         type="number"
+        placeholder="insert projects budget"
         defaultValue={0}
         min={0}
         handleOnChange={handleChange}
@@ -72,7 +70,6 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
         handleOnChange={handleCategory}
         value={project.category && project.category.id}
       />
-
       <SubmitButton text={btnText} />
     </form>
   );

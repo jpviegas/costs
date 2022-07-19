@@ -7,18 +7,19 @@
 
 .social-list {
   display: flex;
-  list-style: none;
   justify-content: center;
+  list-style: none;
 }
 
 .item {
   margin-right: 1em;
+  z-index: 1;
 }
 
 .item a {
   color: #fff;
-  text-decoration: none;
   margin: 0 1em;
+  text-decoration: none;
 }
 
 .item a:hover {

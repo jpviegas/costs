@@ -1,5 +1,5 @@
 .list {
-  background-color: darkgray;
+  background-color: #a9a9a9;
   display: flex;
   justify-content: space-evenly;
   list-style: none;
@@ -11,7 +11,7 @@
 }
 
 .item a {
-  color: #fff;
+  color: #222;
   text-decoration: none;
 }
 

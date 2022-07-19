@@ -17,11 +17,10 @@ function NewProject() {
       body: JSON.stringify(project),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+      .then(() => {
         navigate('/projects', { state: 'Successfully created!' });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => new Error(err));
   };
 
   return (
