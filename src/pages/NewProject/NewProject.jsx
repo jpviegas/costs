@@ -3,8 +3,10 @@ import ProjectForm from '../../components/Project/ProjectForm';
 import './NewProject.css';
 
 function NewProject() {
+  document.title = 'Costs | New Project';
+
   const navigate = useNavigate();
-  const url = 'http://localhost:5000/';
+  const url = 'http://localhost:5000';
 
   const createPost = (project) => {
     project.cost = 0;

@@ -8,14 +8,16 @@ import ProjectCard from './ProjectCard/ProjectCard';
 import './Projects.css';
 
 function Projects() {
+  document.title = 'Costs | Projects';
+
   const [projects, setProjects] = useState([]);
   const [removeLoading, setRemoveLoading] = useState(false);
   const [projectMessage, setProjectMessage] = useState('');
   const location = useLocation();
-  const url = 'http://localhost:5000/';
+  const url = 'http://localhost:5000';
 
   useEffect(() => {
-    fetch(`${url}projects`, {
+    fetch(`${url}/projects`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -35,7 +37,7 @@ function Projects() {
   }
 
   const removeProject = (id) => {
-    fetch(`${url}projects/${id}`, {
+    fetch(`${url}/projects/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

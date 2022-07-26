@@ -2,6 +2,8 @@ import LinkButton from '../../components/LinkButton/LinkButton';
 import './Home.css';
 
 function Home() {
+  document.title = 'Costs | Home';
+
   return (
     <main className="home">
       <section>

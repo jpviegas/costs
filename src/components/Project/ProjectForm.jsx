@@ -8,6 +8,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
   const [categories, setCategories] = useState([]);
   const [project, setProject] = useState(
     projectData || { name: '', budget: 0, category: { id: '', name: '' } }
+    // projectData || {}
   );
 
   useEffect(() => {
@@ -49,7 +50,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
         name="name"
         text="Name"
         type="text"
-        placeholder="insert projects name"
+        placeholder="insert project's name here"
         handleOnChange={handleChange}
         value={project.name}
       />
