@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 // import Container from '../../components/Layout/Container/Container';
 import Loading from '../../components/Layout/Loading/Loading';
 import Message from '../../components/Layout/Message/Message';
@@ -11,8 +11,10 @@ function Project() {
   const { id } = useParams();
   const [project, setProject] = useState([]);
   const [showProjectForm, setShowProjectForm] = useState(false);
+  const [showServiceForm, setShowServiceForm] = useState(false);
   const [message, setMessage] = useState('');
   const [type, setType] = useState('');
+  const navigate = useNavigate();
   const url = 'http://localhost:5000';
   const HALF_SECOND = 500;
 
@@ -27,12 +29,16 @@ function Project() {
         .then((res) => res.json())
         .then((data) => {
           setProject(data);
+          if (!data.name) {
+            navigate('/projects');
+          }
         })
         .catch((err) => new Error(err));
     }, HALF_SECOND);
   }, []);
 
-  const editPost = () => {
+  const editPost = (project) => {
+    setMessage('');
     if (project.budget < project.cost) {
       setMessage('Invalid value');
       setType('error');
@@ -60,14 +66,18 @@ function Project() {
     setShowProjectForm(!showProjectForm);
   }
 
+  function toggleServiceForm() {
+    setShowServiceForm(!showServiceForm);
+  }
+
   return (
     <>
+      <Link to="/projects">
+        <button type="button">back</button>
+      </Link>
       {project.name ? (
         <div className="project-details">
           {/* <Container customClass="column"> */}
-          <Link to="/projects">
-            <button type="button">back</button>
-          </Link>
           {message && <Message type={type} msg={message} />}
           <div className="details-container">
             <h1>Project: {project.name}</h1>
@@ -97,6 +107,19 @@ function Project() {
               </div>
             )}
           </div>
+          <div className="service-form-container">
+            <h2>Add an service</h2>
+            <button type="button" className="btn" onClick={toggleServiceForm}>
+              {!showServiceForm ? 'Add service' : 'Close'}
+            </button>
+            <div className="project-info">
+              {showServiceForm && <div>Service Form</div>}
+            </div>
+          </div>
+          <h2>Services</h2>
+          {/* <Container customClass="start"> */}
+          <p>Services itens</p>
+          {/* </Container> */}
           {/* </Container> */}
         </div>
       ) : (
